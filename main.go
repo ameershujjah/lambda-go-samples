@@ -21,13 +21,8 @@ func Handler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 	// stdout and stderr are sent to AWS CloudWatch Logs
 	log.Printf("Processing Lambda request %s\n", request.RequestContext.RequestID)
 
-	// If no name is provided in the HTTP request body, throw an error
-	if len(request.Body) < 1 {
-		return events.APIGatewayProxyResponse{}, ErrNameNotProvided
-	}
-
 	return events.APIGatewayProxyResponse{
-		Body:       "Hello " + request.Body,
+		Body:       "Hello there!",
 		StatusCode: 200,
 	}, nil
 
